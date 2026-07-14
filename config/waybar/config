@@ -1,0 +1,89 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 34,
+    "margin-top": 6,
+    "margin-left": 10,
+    "margin-right": 10,
+    "spacing": 5,
+    "modules-left": [
+        "niri/workspaces",
+        "niri/window"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "cpu",
+        "pulseaudio",
+        "memory",
+        "battery",
+        "tray",
+        "custom/reboot",
+        "custom/shutdown"
+    ],
+    "niri/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "default": "○",
+            "focused": "●"
+        }
+    },
+    "niri/window": {
+        "format": "   {title}",
+        "max-length": 35,
+        "rewrite": {
+            "": "Niri Desktop"
+        }
+    },
+    "clock": {
+        "format": "{:%d-%b-%a | %I:%M %p}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% 󱐋",
+        "format-full": "{capacity}% {icon}",
+        "format-icons": [
+            "󰂎",
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁", // <-- This is the battery shape (your 1st image)
+            "󰂂",
+            "󰁹"
+        ],
+        "interval": 2
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon}",
+        "format-muted": "󰖁",
+        "format-icons": {
+            "default": [
+                "󰕿", // Low volume (0-33%)
+                "󰖀", // Medium volume (34-66%)
+                "󰕾" // High volume (67-100%)
+            ]
+        },
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "pavucontrol"
+    },
+    "cpu": {
+        "format": "{usage}% "
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    }
+}
